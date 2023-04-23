@@ -12,6 +12,7 @@
 
 // student.greet();
 
+/////////////////////////////////////////////////////////////////////////////////////////////////////////Classes + This Keyword
 // class Student{
 //     constructor(name,age,marks){
 //         this.name = name;
@@ -41,16 +42,36 @@
 
 // Yash.setPlacementAge(18)(40);              //placementAge and Eligible minMarks - set by distinct companies
 
-let fruits = ['apple', 'oranges', ' ', 'mango', ' ', 'lemon'];
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-let fruitsTransformed = fruits.map(fruit=>{
-    if(fruit==' ')
-        return 'empty string';
-    else
-        return fruit;
+//* Array.map((cb)=>return transform(each element)) **
 
-        
-});
-console.log(fruits);
-console.log(fruitsTransformed);
+//let fruits = ['apple', 'oranges', ' ', 'mango', ' ', 'lemon'];
 
+// let fruitsTransformed = fruits.map(fruit=>{
+//     if(fruit==' ')
+//         return 'empty string';
+//     else
+//         return fruit;
+// });
+// console.log(fruits);
+// console.log(fruitsTransformed);
+
+/*   SPREAD and REST operator
+
+// const copiedFruits = [...fruits];
+// console.log(copiedFruits===fruits);         //Deep Copy using SPREAD
+
+// const toArr = (...args)=>args;                  //REST operator to Create ARRAY out of arguments
+// console.log(toArr('a','b','c','d'));
+
+*/
+
+
+/////* DESTRUCTURING 
+const obj1 = { 'key1': 1, "key2": 2, "key3": 1000 }
+
+const { key1, key3 } = { ...obj1 }
+
+
+console.log(key1, key3)
