@@ -1,6 +1,8 @@
 // const add = (a,b) => a+b;
 // console.log(add(2,5));
 
+const { rejects } = require("assert");
+
 // const student ={
 //     name:'Aayush',
 //     subject:'Data Structures',
@@ -69,9 +71,63 @@
 
 
 /////* DESTRUCTURING 
-const obj1 = { 'key1': 1, "key2": 2, "key3": 1000 }
+// const obj1 = { 'key1': 1, "key2": 2, "key3": 1000 }
 
-const { key1, key3 } = { ...obj1 }
+// const { key1, key3 } = { ...obj1 }
 
 
-console.log(key1, key3)
+// console.log(key1, key3)
+
+///////////////////////////////////////////////////////////////////ASYNC JS
+
+//Challenge Task5   - Using call backs
+// console.log('a');
+
+// console.log('b');
+
+// setTimeout(() => {
+//     console.log('c');
+//     setTimeout(() => {
+//         console.log('d');
+//         console.log('e');
+//         }, 0)}
+//     ,3000);
+
+////// Using Promises!!
+
+// console.log('a');
+// console.log('b');
+// new Promise((resolve,reject)=>{
+//     setTimeout(() => resolve('c'), 3000)})
+//     .then((res)=>{
+//         console.log(res);
+//         new Promise((resolve,reject)=>{
+//             setTimeout(() => resolve('d'), 0);
+//         })
+//         .then((res)=>{
+//             console.log(res);
+//             console.log('e');})
+//     })
+
+////////// Using Async AWAIT
+async function abc(){
+console.log('a');
+console.log('b');
+
+const c = await new Promise((res,rej)=>setTimeout(() => res('c'), 3000));
+console.log(c);
+
+const d = await new Promise((res, rej) => setTimeout(() => res('d'), 0));
+console.log(d);
+
+console.log('e');
+
+}
+abc();
+
+
+
+
+
+
+
