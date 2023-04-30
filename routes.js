@@ -18,7 +18,7 @@ const requestHandler = (req,res) =>{
             res.write("</html>");
             return res.end();
         })
-        console.log("inside url");
+        console.log("inside url = / after readFile method");
     }
 
     else if (url === '/message' && method === 'POST') {
@@ -37,8 +37,10 @@ const requestHandler = (req,res) =>{
                 }
                 res.statusCode = 302;
                 res.setHeader('Location', '/');                 //Redirect to base - / page
+                console.log("inside writeFileMethod")
                 return res.end();
             });
+            console.log("insude req.on end event after writeFile")
         });
     }
     else{
@@ -52,10 +54,13 @@ const requestHandler = (req,res) =>{
     }
 }
 
-module.exports = requestHandler;
+exports.handler = requestHandler;
 
-//Export Way1
+//Export Way1 single/multiple
 //module.exports = requestHandler;
+//OR
+//module.exports.handler = requestHandler;
+//module.exports.someText=someText
 
 
 //Export Way2   -multiple
@@ -69,7 +74,8 @@ module.exports = requestHandler;
 // module.exports.someText = "Some hard Coded Text";
 
 //Way4 - for Multiple
-//module.exports=requestHandler;
+//exports.handler=requestHandler;
+//exports.someText=someText;
 
 
 
