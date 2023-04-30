@@ -8,12 +8,11 @@ path
 os
 */
 
-//require - import files/paths/modules
-const myName = "Aayush";
-const http = require('http');
-const fs = require('fs');
-const routes = require('./routes');
+//require() - import files/paths/modules
 
-const server = http.createServer(routes.handler);
-console.log(routes.someText);       //Prints 1st Asyncly
+const http = require('http');
+
+const routes = require('./routes');         //Holds requestHandler function
+
+const server = http.createServer(routes);
 server.listen(4000);
