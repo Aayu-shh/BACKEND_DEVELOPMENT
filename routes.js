@@ -10,6 +10,7 @@ const requestHandler = (req,res) =>{
             if(err){
                 console.log(err)
             }
+
             console.log("Inside readFIle, data>>>>", data);
             res.write("<html>");
             res.write("<head><title>Enter Message</title></head>");
@@ -53,7 +54,6 @@ const requestHandler = (req,res) =>{
         res.end();
     }
 }
-
 exports.handler = requestHandler;
 
 //Export Way1 single/multiple
