@@ -15,22 +15,18 @@ const bodyParser = require('body-parser');
 
 const app = express();
 
+const adminRoutes = require('./routes/admin');
+const shopRouter = require('./routes/shop');
 //MiddleWare function
 //Automatically calls next()
 app.use(bodyParser.urlencoded({extended:false}));
 
-app.use('/add-product',(req, res, next) => {
-    res.send('<form action="/product" method="POST"><label>Poduct Name:</label><input type="text" name="title"><br><label>Poduct Size:</label><input type="text" name = "size"><br><button type="submit">ADD PRODUCT</button></form>');
-});
+app.use('/admin',adminRoutes);
+app.use('/shop',shopRouter);
 
-//Can be placed anywhere just before last "/" Only enters incase of POST requests
-app.post('/product',(req,res,next)=>{                                    
-    console.log(req.body);
-    res.redirect('/');
-});
-
-app.use('/',(req, res, next) => {
-    res.send('<h1>Hello from Express!</h1>');
+//catch all rooute
+app.use((req,res,next)=>{
+    res.status(404).send('<h1>PAge NOT found , try any of the following routes:-</h1><br><br><h2>/admin/add-product</h2><h2>/shop</h2>')
 });
 
 app.listen(4000);
