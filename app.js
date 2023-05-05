@@ -9,14 +9,16 @@ os
 */
 
 //require() - import files/paths/modules
-
+const path = require('path');
 const express = require('express');
+
 const bodyParser = require('body-parser');
 
 const app = express();
 
 const adminRoutes = require('./routes/admin');
 const shopRouter = require('./routes/shop');
+
 //MiddleWare function
 //Automatically calls next()
 app.use(bodyParser.urlencoded({extended:false}));
@@ -26,7 +28,7 @@ app.use('/shop',shopRouter);
 
 //catch all rooute
 app.use((req,res,next)=>{
-    res.status(404).send('<h1>PAge NOT found , try any of the following routes:-</h1><br><br><h2>/admin/add-product</h2><h2>/shop</h2>')
+    res.status(404).sendFile(path.join(__dirname,'views','404.html'));
 });
 
 app.listen(4000);
