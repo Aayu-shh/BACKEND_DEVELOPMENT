@@ -3,16 +3,13 @@
 * __dirname -> gives ABSOLUTEpath to current folder 
 */
 
-const path = require('path');
 const express = require('express');
 
-const rootDir = require('../util/path');
+const productsController = require('../controllers/products');
 
 const router = express.Router();
 
 // /shop/ => GET
-router.get('/',(req,res,next)=>{
-    res.sendFile(path.join(rootDir,'views','shop.html'));
-})
+router.get('/',productsController.getShopProducts)
 
 module.exports = router;
